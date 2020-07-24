@@ -19,13 +19,17 @@ def buttonEntryClear():
 
 
 def buttonEntryAdd():
+    """Saves entry values inside a global variable so that it can be used when adding the values."""
     global savedAddition
     savedAddition = int(entry1.get())
     entry1.delete(0, END)
 
 
 def buttonEntryEqual():
-    pass
+    """Adds the saved value and the entry value. Displays result on screen."""
+    sumTotal = savedAddition + int(entry1.get())
+    entry1.delete(0, END)
+    entry1.insert(0, str(sumTotal))
 
 
 # Creating the window for our application
@@ -48,7 +52,7 @@ button7 = Button(root, text="7", padx=40, pady=20, command=lambda: buttonClick(7
 button8 = Button(root, text="8", padx=40, pady=20, command=lambda: buttonClick(8))
 button9 = Button(root, text="9", padx=40, pady=20, command=lambda: buttonClick(9))
 buttonAdd = Button(root, text='+', padx=39, pady=20, command=lambda: buttonEntryAdd())
-buttonEqual = Button(root, text='0', padx=91, pady=20, command=lambda: buttonEntryEqual())
+buttonEqual = Button(root, text='=', padx=91, pady=20, command=lambda: buttonEntryEqual())
 buttonClear = Button(root, text='Clear', padx=79, pady=20, command=lambda: buttonEntryClear())
 
 # Puts buttons on the screen
